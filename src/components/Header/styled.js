@@ -14,5 +14,5 @@ export const Container = styled.div`
 export const Icon = styled.i`
   font-size: 40px;
   margin-left: 20px;
-  display: ${ ({display}) => display };
+  cursor: pointer;
 `;

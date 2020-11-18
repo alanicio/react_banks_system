@@ -9,7 +9,7 @@ const BankCard = ({ name }) => {
         src="https://www.designevo.com/res/templates/thumb_small/blue-and-yellow-earth.png"
         alt="BankName"
       />
-      <h3>{ name }</h3>
+      <h3>{name}</h3>
     </Card>
   );
 };

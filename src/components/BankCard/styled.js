@@ -10,6 +10,10 @@ export const Card = styled.div`
 
   max-width: 180px;
 
+  &:hover {
+    background-color: #e4ecfa;
+  }
+
   img {
     width: 180px;
     height: 180px;
