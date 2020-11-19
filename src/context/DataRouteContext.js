@@ -20,7 +20,6 @@ const DataRouteProvider = props => {
     }
   }
   
-
   return (
     <DataRouteContext.Provider
       value={{

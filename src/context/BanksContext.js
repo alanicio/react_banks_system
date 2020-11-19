@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { filterBanks, getBanks } from "../helpers";
+import { filterArrayByNameAttribute, getBanks } from "../helpers";
 
 export const BanksContext = createContext();
 
@@ -11,11 +11,16 @@ const BanksProvider = (props) => {
     if (banks.length === 0) {
       getBanks(setBanks);
     }
+    //eslint-disable-next-line
   }, []);
 
   return (
     <BanksContext.Provider
-      value={{ banks: filterBanks(search, banks), search, setSearch }}
+      value={{
+        banks: filterArrayByNameAttribute(search, banks),
+        search,
+        setSearch,
+      }}
     >
       {props.children}
     </BanksContext.Provider>

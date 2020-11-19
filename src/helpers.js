@@ -7,8 +7,8 @@ export const getBanks = async (setBanks) => {
   setBanks(banks);
 }
 
-export const filterBanks = (search, banks) => {
-  const filteredBanks = banks.filter( ( { name } ) => {
+export const filterArrayByNameAttribute = (search, array) => {
+  const filteredArray = array.filter( ( { name } ) => {
     if( 
       name.toLowerCase().includes( search.toLowerCase().trim() ) 
     ) {
@@ -16,5 +16,15 @@ export const filterBanks = (search, banks) => {
     }
       return false;
   } );
-  return filteredBanks;
+  return filteredArray;
+}
+
+export const getBranches = async (setBranches) => {
+  const api = await axios.get("https://tryouts-cumplo.herokuapp.com/branches/");
+  const branches = api.data.results;
+  setBranches(branches);
+}
+
+export const filterBranchesByBank = (BankId,branches) => {
+  return branches.filter( ({bank}) => bank === BankId );
 }

@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { Card } from "./styled";
+import { DataRouteContext } from "../../context/DataRouteContext";
 
-const BankCard = ({ name }) => {
+const BankCard = ({bank}) => {
+  const {setBank} = useContext(DataRouteContext);
+  const { name } = bank;
   return (
-    <Card>
+    <Card onClick={() => setBank(bank)}>
       <img
         src="https://www.designevo.com/res/templates/thumb_small/blue-and-yellow-earth.png"
         alt="BankName"
@@ -15,7 +18,7 @@ const BankCard = ({ name }) => {
 };
 
 BankCard.propTypes = {
-  name: PropTypes.string.isRequired,
+  bank: PropTypes.object.isRequired,
 };
 
 export default BankCard;
