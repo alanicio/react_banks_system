@@ -1,12 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { BranchCard } from './styled';
 
 const Branch = ({branch}) => {
   const { name } = branch;
   return (
-    <div>
+    <BranchCard>
       <h3>{name}</h3>
-    </div>
+      <p> <span>Country:</span> Country </p>
+      <p> <span>City:</span> city </p>
+    </BranchCard>
   )
 }
 
