@@ -5,15 +5,18 @@ import Header from './components/Header/Header';
 import BanksProvider from './context/BanksContext';
 import BranchesProvider from './context/BranchesContext';
 import DataRouteProvider from './context/DataRouteContext';
+import EmployeesProvider from './context/EmployeesContext';
 
 function App() {
   return (
     <DataRouteProvider>
       <BanksProvider>
         <BranchesProvider>
-          <Header />
-          <FilterTools />
-          <Content />
+          <EmployeesProvider>
+            <Header />
+            <FilterTools />
+            <Content />            
+          </EmployeesProvider>
         </BranchesProvider>
       </BanksProvider>
     </DataRouteProvider>
