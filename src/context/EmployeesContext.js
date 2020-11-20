@@ -7,12 +7,11 @@ const EmployeesProvider = (props) => {
   const [employees, setEmployees] = useState([]);
   const [page, setPage] = useState(1);
   const [maxPage, setMaxPage] = useState(0);
-  const [totalNumberOfEmployees, setTotalNumberOfEmployees] = useState(0);
   const [branchId, setBranchId] = useState(-1);
 
   useEffect(() => {
     if (branchId >= 0) {
-      getEmployees(branchId, page, setEmployees, setTotalNumberOfEmployees,setMaxPage);
+      getEmployees(branchId, page, setEmployees, setMaxPage);
     }
     //eslint-disable-next-line
   }, [branchId, page]);

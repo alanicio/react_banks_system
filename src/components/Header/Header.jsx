@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { DataRouteContext } from "../../context/DataRouteContext";
+import { EmployeesContext } from "../../context/EmployeesContext";
 import { Container, Icon } from "./styled";
 
 const Header = () => {
   const { bank, branch, employe, createEmploye, goBack } = useContext(DataRouteContext);
+  const { setPage } = useContext(EmployeesContext);
   let title;
   if (bank === null) {
     title = "BANCOS";
@@ -20,7 +22,12 @@ const Header = () => {
   return (
     <Container>
       {bank === null ? null : (
-        <Icon data-testid="arrow" className="fas fa-arrow-left" onClick={goBack}></Icon>
+        <Icon data-testid="arrow" className="fas fa-arrow-left" onClick={
+          () =>{
+            goBack();
+            setPage(1);
+          }
+        }></Icon>
       )}
 
       <h1 data-testid="title">{title}</h1>

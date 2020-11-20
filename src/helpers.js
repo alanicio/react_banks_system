@@ -26,13 +26,12 @@ export const filterBranchesByBank = (bankId, branches) => {
   return branches.filter(({ bank }) => bank === bankId);
 };
 
-export const getEmployees = async (branchId,page, setEmployees, setTotalNumberOfEmployees,setMaxPage) => {
+export const getEmployees = async (branchId,page, setEmployees,setMaxPage) => {
   const api = await axios.get(
     `https://tryouts-cumplo.herokuapp.com/employees/?branch=${branchId}&page=${page}`
   );
   const employees = api.data.results;
   const totalNumberOfEmployees = api.data.count;
   setEmployees(employees);
-  setTotalNumberOfEmployees(totalNumberOfEmployees);
   setMaxPage(Math.ceil(totalNumberOfEmployees / 5));
 };
