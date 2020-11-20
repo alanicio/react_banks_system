@@ -1,5 +1,10 @@
 import styled from "@emotion/styled";
 
+export const LoaderContainer = styled.div`
+  margin: auto;
+  padding-top: 10rem;
+`;
+
 export const Button = styled.button`
   padding: 1rem 1rem;
   background-color:  #569939;
