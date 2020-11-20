@@ -43,4 +43,8 @@ export const Table = styled.table`
     }
   }
 
+  thead tr th:first-of-type {
+    cursor: pointer;
+  }
+
 `;
