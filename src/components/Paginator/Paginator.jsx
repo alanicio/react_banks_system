@@ -4,7 +4,6 @@ import { Container, Page } from "./styled";
 
 const Paginator = () => {
   const { maxPage, page, setPage } = useContext(EmployeesContext);
-  console.log(maxPage);
   let pagesArray = [];
   for (let i = 1; i <= maxPage; i++) {
     pagesArray.push(i);

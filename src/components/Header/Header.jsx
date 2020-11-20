@@ -4,7 +4,7 @@ import { EmployeesContext } from "../../context/EmployeesContext";
 import { Container, Icon } from "./styled";
 
 const Header = () => {
-  const { bank, branch, employe, createEmploye, goBack } = useContext(DataRouteContext);
+  const { bank, branch, createEmploye, goBack } = useContext(DataRouteContext);
   const { setPage } = useContext(EmployeesContext);
   let title;
   if (bank === null) {
@@ -13,10 +13,8 @@ const Header = () => {
     title = `Sucursales de ${bank.name}`;
   } else if (createEmploye) {
     title = `Agregar empleado a ${bank.name} sucursal ${branch.name}`;
-  } else if (employe === null) {
+  } else {
     title = `Empleados de ${bank.name} sucursal ${branch.name}`;
-  } else if (employe !== null) {
-    title = `${employe.name} ${employe.middle_name} ${employe.last_name}, Empleado de ${bank.name} sucursal ${branch.name}`;
   }
 
   return (

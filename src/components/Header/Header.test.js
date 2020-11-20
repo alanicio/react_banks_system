@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import DataRouteProvider,{DataRouteContext} from "../../context/DataRouteContext";
 import Header from "./Header";
+import { EmployeesContext } from "../../context/EmployeesContext";
 
 let bank = null;
 let branch = null;
@@ -13,11 +14,14 @@ const setBank  = jest.fn();
 const setBranch = jest.fn();
 const setEmploye = jest.fn();
 const setCreateEmploye = jest.fn();
+const setPage = jest.fn();
 
 test('<Header/> Testing title on first render', () => {
   render(
     <DataRouteProvider >
-      <Header />
+      <EmployeesContext.Provider value={{setPage}}>
+        <Header />
+      </EmployeesContext.Provider>
     </DataRouteProvider>
   );
 
@@ -45,7 +49,9 @@ test('<Header/> Testing title after select Bank', () => {
       setCreateEmploye,
     }}
     >
-      <Header />
+      <EmployeesContext.Provider value={{setPage}}>
+        <Header />
+      </EmployeesContext.Provider>
     </DataRouteContext.Provider>
   );
 
@@ -74,7 +80,9 @@ test('<Header/> Testing title after select Branch', () => {
       setCreateEmploye,
     }}
     >
-      <Header />
+      <EmployeesContext.Provider value={{setPage}}>
+        <Header />
+      </EmployeesContext.Provider>
     </DataRouteContext.Provider>
   );
 
@@ -103,7 +111,9 @@ test('<Header/> Testing title form to add an employe', () => {
       setCreateEmploye,
     }}
     >
-      <Header />
+      <EmployeesContext.Provider value={{setPage}}>
+        <Header />
+      </EmployeesContext.Provider>
     </DataRouteContext.Provider>
   );
 
@@ -139,7 +149,9 @@ test('<Header/> Testing title after select an employe', () => {
       setCreateEmploye,
     }}
     >
-      <Header />
+      <EmployeesContext.Provider value={{setPage}}>
+        <Header />
+      </EmployeesContext.Provider>
     </DataRouteContext.Provider>
   );
 

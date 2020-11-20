@@ -19,7 +19,7 @@ const EmployeesProvider = (props) => {
 
   return (
     <EmployeesContext.Provider
-      value={{ employees, page, setPage, maxPage, setBranchId }}
+      value={{ employees, setEmployees, page, setPage, maxPage, setBranchId }}
     >
       {props.children}
     </EmployeesContext.Provider>

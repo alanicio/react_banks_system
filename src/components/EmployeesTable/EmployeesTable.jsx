@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react'
 import Loader from 'react-loader-spinner';
+import { DataRouteContext } from '../../context/DataRouteContext';
 import { EmployeesContext } from '../../context/EmployeesContext'
 import Paginator from '../Paginator/Paginator';
 import { Button, LoaderContainer, Table } from './styled';
 
 const EmployeesTable = () => {
-  const {employees} = useContext(EmployeesContext);
+  const {employees, setPage} = useContext(EmployeesContext);
+  const { setCreateEmploye } = useContext(DataRouteContext);
   const [loader, setLoader] = useState(true);
 
   setTimeout(() => {
@@ -26,7 +28,12 @@ const EmployeesTable = () => {
   } else {
     return (
       <>
-        <Button> <i className="fas fa-plus"></i>  Agregar empleado</Button>
+        <Button onClick={
+          () => {
+            setPage(1);
+            setCreateEmploye(true);
+          }
+        } > <i className="fas fa-plus"></i>  Agregar empleado</Button>
         <Table>
           <thead>
             <tr>

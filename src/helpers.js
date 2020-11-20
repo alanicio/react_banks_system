@@ -35,3 +35,8 @@ export const getEmployees = async (branchId,page, setEmployees,setMaxPage) => {
   setEmployees(employees);
   setMaxPage(Math.ceil(totalNumberOfEmployees / 5));
 };
+
+export const createNewEmployee = async (employee) => {
+  axios.post('https://tryouts-cumplo.herokuapp.com/employees/',employee);
+}
+
