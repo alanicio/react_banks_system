@@ -31,10 +31,12 @@ const EmployeeForm = ( {setCreateEmploye, branchId} ) => {
   };
 
   const typeHandler = (e) => {
-    setEmployee({
-      ...employee,
-      [e.target.name]: e.target.value,
-    });
+    if(/^[A-Za-zá-ź ]*$/.test(e.target.value)){
+      setEmployee({
+        ...employee,
+        [e.target.name]: e.target.value,
+      });
+    }
   };
 
   return (
@@ -52,6 +54,7 @@ const EmployeeForm = ( {setCreateEmploye, branchId} ) => {
           id="name"
           data-testid="name"
           onChange={typeHandler}
+          value={name}
         />
       </FormBlock>
 
@@ -63,6 +66,7 @@ const EmployeeForm = ( {setCreateEmploye, branchId} ) => {
           id="middle_name"
           data-testid="middle_name"
           onChange={typeHandler}
+          value={middle_name}
         />
       </FormBlock>
 
@@ -74,6 +78,7 @@ const EmployeeForm = ( {setCreateEmploye, branchId} ) => {
           id="last_name"
           data-testid="last_name"
           onChange={typeHandler}
+          value={last_name}
         />
       </FormBlock>
 
