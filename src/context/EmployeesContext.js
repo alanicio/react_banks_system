@@ -12,11 +12,11 @@ const EmployeesProvider = (props) => {
 
   useEffect(() => {
     if (branchId >= 0) {
-      getEmployees(branchId, page, setEmployees, setTotalNumberOfEmployees);
-      setMaxPage(Math.ceil(totalNumberOfEmployees / 5));
+      getEmployees(branchId, page, setEmployees, setTotalNumberOfEmployees,setMaxPage);
     }
     //eslint-disable-next-line
   }, [branchId, page]);
+  
 
   return (
     <EmployeesContext.Provider
